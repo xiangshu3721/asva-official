@@ -1393,3 +1393,111 @@ html, body {
   }
 }
 
+/* Explore tools hub — mobile first */
+.explore-tools {
+  padding-top: 3.25rem;
+  padding-bottom: 4.5rem;
+}
+.explore-tools .section-head h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 6vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.tool-card {
+  margin: 0;
+  background: rgba(28, 25, 21, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+}
+.tool-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.tool-card-link:hover,
+.tool-card-link:focus-visible {
+  color: inherit;
+}
+.tool-cover {
+  margin: 0;
+  background: #0e0c0a;
+  overflow: hidden;
+}
+.tool-cover img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.tool-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.65rem;
+  padding: 1.25rem 1.2rem 1.4rem;
+}
+.tool-copy h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 4vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.tool-copy p {
+  margin: 0;
+  flex: 1;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.tool-copy .btn {
+  align-self: flex-start;
+  margin-top: 0.45rem;
+  min-height: 44px;
+}
+.tool-card-link:hover .tool-cover img,
+.tool-card-link:focus-visible .tool-cover img {
+  transform: scale(1.03);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tool-cover img { transition: none; }
+  .tool-card-link:hover .tool-cover img,
+  .tool-card-link:focus-visible .tool-cover img {
+    transform: none;
+  }
+}
+
+@media (min-width: 720px) {
+  .explore-tools {
+    padding-top: 4rem;
+    padding-bottom: 5.5rem;
+  }
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .tool-copy {
+    padding: 1.4rem 1.4rem 1.55rem;
+  }
+}
+
+
