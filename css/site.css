@@ -937,24 +937,35 @@ a:hover { color: var(--ink); }
 .hero-tagline-wrap {
   width: 100%;
   max-width: 100%;
-  overflow: visible;
+  overflow: hidden;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   padding-inline: 0.25rem;
 }
 .hero .hero-tagline {
-  white-space: nowrap;
-  display: inline-block;
+  white-space: normal;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   position: static;
   left: auto;
   transform: none;
-  max-width: 100%;
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.65;
   letter-spacing: 0.04em;
-  font-size: clamp(0.62rem, 1.55vw + 0.28rem, 1.02rem);
+  font-size: clamp(0.78rem, 3.4vw, 0.98rem);
   color: var(--ink-soft);
   text-align: center;
+}
+@media (min-width: 720px) {
+  .hero .hero-tagline {
+    white-space: nowrap;
+    display: inline-block;
+    width: auto;
+  }
 }
 .hero-lead {
   text-align: center;
@@ -1229,8 +1240,7 @@ html, body {
   .leader-feature { padding: 1rem; }
   .leader-art { min-height: 240px; max-height: 360px; }
   .leader-art img { object-fit: contain; background: #14110e; }
-  .system-feature .leader-art { max-height: none; }
-  .system-feature .leader-art img { object-fit: contain; }
+  .system-feature .leader-art { min-height: 0; max-height: none; }
 }
 
 /* 用心若镜 — image + copy */
@@ -1305,10 +1315,13 @@ html, body {
   margin: 0;
 }
 .system-feature .leader-art {
-  min-height: 220px;
+  min-height: 0;
+  max-height: none;
+  height: auto;
 }
 .system-feature .leader-art img {
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   background: #14110e;
 }
@@ -1337,7 +1350,7 @@ html, body {
     min-height: 320px;
   }
   .system-feature .leader-art {
-    min-height: 280px;
+    min-height: 0;
   }
   .system-feature.reverse .leader-copy { order: 1; }
   .system-feature.reverse .leader-art { order: 2; }
@@ -1347,5 +1360,32 @@ html, body {
   .mirror-heart { padding: 1rem; }
   .system-feature.reverse .leader-copy,
   .system-feature.reverse .leader-art { order: unset; }
+}
+
+/* Mobile hero overflow hardening */
+.hero-content,
+.hero-content > * {
+  max-width: 100%;
+}
+@media (max-width: 719px) {
+  .hero {
+    overflow: hidden;
+    padding: 1.75rem 0.85rem 2.25rem;
+  }
+  .hero h1,
+  .hero-welcome {
+    letter-spacing: 0.12em;
+  }
+  .hero h1 {
+    text-indent: 0.12em;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    flex: 1 1 auto;
+  }
 }
 
