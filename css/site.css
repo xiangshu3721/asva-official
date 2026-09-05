@@ -1240,8 +1240,8 @@ html, body {
   .leader-feature { padding: 1rem; }
   .leader-art { min-height: 240px; max-height: 360px; }
   .leader-art img { object-fit: contain; background: #14110e; }
-  .system-feature .leader-art { min-height: 0; max-height: none; overflow: visible; }
-  .system-feature .leader-art img { object-fit: contain; width: 100%; height: auto; }
+  .system-feature .leader-art { min-height: 220px; height: auto; overflow: visible; background: #14110e; }
+  .system-feature .leader-art img { width: 100% !important; height: auto !important; max-height: none !important; object-fit: contain !important; display: block; }
 }
 
 /* 用心若镜 — image + copy */
@@ -1316,16 +1316,17 @@ html, body {
   margin: 0;
 }
 .system-feature .leader-art {
-  min-height: 0;
-  max-height: none;
+  min-height: 220px;
   height: auto;
   overflow: visible;
+  background: #14110e;
 }
 .system-feature .leader-art img {
-  object-fit: contain;
-  width: 100%;
-  height: auto;
-  background: #14110e;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block;
 }
 .system-feature .leader-copy h3 {
   margin: 0.15rem 0 0.45rem;
@@ -1352,7 +1353,8 @@ html, body {
     min-height: 320px;
   }
   .system-feature .leader-art {
-    min-height: 0;
+    min-height: 220px;
+    height: auto;
   }
   .system-feature.reverse .leader-copy { order: 1; }
   .system-feature.reverse .leader-art { order: 2; }
