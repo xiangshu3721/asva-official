@@ -93,6 +93,7 @@
     if (!el || !wrap) return;
     el.style.transform = 'none';
     el.style.fontSize = '';
+    if (window.innerWidth < 720) return;
     var maxPx = Math.min(window.innerWidth * 0.042, 16.5);
     var minPx = 10;
     el.style.fontSize = maxPx + 'px';
