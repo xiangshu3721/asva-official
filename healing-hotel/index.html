@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1a1814" />
   <meta name="description" content="疗愈酒店 · 嘉宾身心觉察与官方冥想" />
   <title>疗愈酒店 · 身心觉察</title>
-  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/site.css?v=2" />
 </head>
 <body>
   <div id="app" class="app">
@@ -62,9 +62,10 @@
         <button type="button" class="icon-btn" id="btn-back-from-lib" aria-label="返回">‹</button>
         <h2 class="view-title">官方冥想</h2>
       </header>
-      <p class="lib-note">试听占位 · 可替换官方音频</p>
+      <p class="lib-note">官方引导冥想 · 点击封面即可播放</p>
       <ul class="track-list" id="track-list"></ul>
       <div class="player" id="player" hidden>
+        <img class="player__cover" id="player-cover" src="" alt="" width="56" height="56" hidden />
         <div class="player__info">
           <p class="player__title" id="player-title">—</p>
           <p class="player__status" id="player-status">准备就绪</p>
@@ -80,6 +81,6 @@
       </div>
     </section>
   </div>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>

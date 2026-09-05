@@ -90,46 +90,84 @@
 
   var TRACKS = [
     {
-      id: "relax-sleep",
-      src: "audio/relax-sleep.mp3",
-      title: "安睡引导",
-      desc: "低缓音色，帮助身体放下白日残留。",
+      id: "breathe-sleep",
+      src: "audio/01-breathe-sleep.m4a",
+      cover: "covers/01-breathe-sleep.jpg",
+      title: "呼吸入眠",
+      desc: "随呼吸沉入安眠 · 约 13 分钟",
       tags: ["sleep", "relax"]
     },
     {
-      id: "stress-breath",
-      src: "audio/stress-breath.mp3",
-      title: "减压呼吸",
-      desc: "跟随柔和起伏，让呼吸重新变深。",
-      tags: ["stress", "breath"]
+      id: "body-sleep",
+      src: "audio/02-body-sleep.m4a",
+      cover: "covers/02-body-sleep.jpg",
+      title: "安眠感受身体练习",
+      desc: "身体扫描入眠 · 约 16 分钟",
+      tags: ["sleep", "relax"]
     },
     {
-      id: "body-scan",
-      src: "audio/body-scan.mp3",
-      title: "身体扫描",
-      desc: "由头到足轻轻巡视，安住当下感受。",
-      tags: ["stress", "body"]
+      id: "soft-body-mind",
+      src: "audio/03-soft-body-mind.m4a",
+      cover: "covers/03-soft-body-mind.jpg",
+      title: "身心柔软",
+      desc: "柔软身心 · 约 14 分钟",
+      tags: ["relax", "emotion"]
     },
     {
-      id: "morning-clarity",
-      src: "audio/morning-clarity.mp3",
-      title: "晨间清明",
-      desc: "清亮而温和，适合醒来后的片刻对齐。",
-      tags: ["morning", "clarity"]
+      id: "let-go",
+      src: "audio/04-let-go.m4a",
+      cover: "covers/04-let-go.jpg",
+      title: "学会放下",
+      desc: "轻轻松手 · 约 8 分钟",
+      tags: ["emotion", "stress"]
     },
     {
-      id: "emotion-soothe",
-      src: "audio/emotion-soothe.mp3",
-      title: "情绪安抚",
-      desc: "柔软音色陪伴起伏的心情慢慢落地。",
-      tags: ["emotion"]
+      id: "breath-body",
+      src: "audio/05-breath-body.m4a",
+      cover: "covers/05-breath-body.jpg",
+      title: "呼吸觉知身体",
+      desc: "呼吸带回身体 · 约 9 分钟",
+      tags: ["stress", "relax"]
     },
     {
-      id: "body-mind",
-      src: "audio/body-mind.mp3",
-      title: "身心合一",
-      desc: "让身体与心意重新同频，回到完整。",
-      tags: ["emotion", "body"]
+      id: "relax-body",
+      src: "audio/06-relax-body.m4a",
+      cover: "covers/06-relax-body.jpg",
+      title: "放松身体",
+      desc: "逐层放松 · 约 8 分钟",
+      tags: ["relax", "stress"]
+    },
+    {
+      id: "circle-breath",
+      src: "audio/07-circle-breath.m4a",
+      cover: "covers/07-circle-breath.jpg",
+      title: "循环呼吸法",
+      desc: "循环呼吸 · 约 11 分钟",
+      tags: ["stress"]
+    },
+    {
+      id: "clear-energy",
+      src: "audio/08-clear-energy.m4a",
+      cover: "covers/08-clear-energy.jpg",
+      title: "清理负面能量",
+      desc: "清理与净化 · 约 15 分钟",
+      tags: ["emotion", "stress"]
+    },
+    {
+      id: "from-anxiety",
+      src: "audio/09-from-anxiety.m4a",
+      cover: "covers/09-from-anxiety.jpg",
+      title: "从焦虑中解脱出来",
+      desc: "从焦虑中松绑 · 约 11 分钟",
+      tags: ["stress", "emotion"]
+    },
+    {
+      id: "ease",
+      src: "audio/10-ease.m4a",
+      cover: "covers/10-ease.jpg",
+      title: "一切都是轻而易举来到我们身边",
+      desc: "轻而易举 · 约 9 分钟",
+      tags: ["emotion", "relax"]
     }
   ];
 
@@ -154,6 +192,7 @@
     suggestBlock: document.getElementById("suggest-block"),
     trackList: document.getElementById("track-list"),
     player: document.getElementById("player"),
+    playerCover: document.getElementById("player-cover"),
     playerTitle: document.getElementById("player-title"),
     playerStatus: document.getElementById("player-status"),
     btnPlay: document.getElementById("btn-play"),
@@ -335,28 +374,28 @@
       if (picked.indexOf(id) === -1) picked.push(id);
     }
     if (scores.stress >= 60) {
-      add("stress-breath");
-      add("body-scan");
+      add("circle-breath");
+      add("breath-body");
     }
     if (scores.emotion < 55) {
-      add("emotion-soothe");
-      add("body-mind");
+      add("from-anxiety");
+      add("soft-body-mind");
     }
     if (scores.sleep < 55) {
-      add("relax-sleep");
+      add("breathe-sleep");
     }
     if (scores.relax >= 60) {
-      add("morning-clarity");
-      add("body-mind");
+      add("ease");
+      add("soft-body-mind");
     }
     if (scores.stress < 45 && scores.emotion >= 60 && scores.sleep >= 60) {
-      add("morning-clarity");
-      add("body-mind");
+      add("ease");
+      add("soft-body-mind");
     }
     if (!picked.length) {
-      add("stress-breath");
-      add("relax-sleep");
-      add("emotion-soothe");
+      add("circle-breath");
+      add("breathe-sleep");
+      add("from-anxiety");
     }
     return picked
       .map(function (id) {
@@ -516,7 +555,11 @@
       btn.className =
         "track" + (state.currentTrackId === t.id ? " is-current" : "");
       btn.innerHTML =
-        '<span class="track__glyph" aria-hidden="true">♪</span>' +
+        '<img class="track__cover" src="' +
+        t.cover +
+        '" alt="' +
+        t.title +
+        '" />' +
         '<span class="track__meta"><p class="track__title">' +
         t.title +
         '</p><p class="track__desc">' +
@@ -539,6 +582,11 @@
     if (!track) return;
     state.currentTrackId = id;
     els.player.hidden = false;
+    if (els.playerCover) {
+      els.playerCover.src = track.cover;
+      els.playerCover.alt = track.title;
+      els.playerCover.hidden = false;
+    }
     els.playerTitle.textContent = track.title;
     els.audio.src = track.src;
     els.seek.value = "0";
