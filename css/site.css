@@ -71,6 +71,7 @@ a:hover { color: var(--ink); }
   margin-inline: auto;
 }
 .container.narrow { width: min(760px, calc(100% - 2rem)); }
+.section.philosophy .container.narrow { width: min(980px, calc(100% - 1.25rem)); }
 
 /* Header */
 .site-header {
@@ -975,6 +976,7 @@ a:hover { color: var(--ink); }
 .system-card,
 .service-block,
 .mirror-insight,
+.mirror-heart,
 .heritage-row,
 .contact-card,
 .space-grid li {
@@ -985,6 +987,7 @@ a:hover { color: var(--ink); }
 .system-card h3,
 .philo-card h3,
 .heritage-copy h3,
+.mirror-heart-copy h3,
 .section-head h2,
 .about-copy .lead {
   color: var(--ink) !important;
@@ -1051,6 +1054,7 @@ html, body {
 .about-grid,
 .philo-cards,
 .systems-grid,
+.systems-stack,
 .services-layout,
 .space-grid,
 .heritage-row {
@@ -1073,6 +1077,7 @@ html, body {
 .service-block,
 .heritage-row,
 .mirror-insight,
+.mirror-heart,
 .contact-card {
   max-width: 100%;
 }
@@ -1224,5 +1229,122 @@ html, body {
   .leader-feature { padding: 1rem; }
   .leader-art { min-height: 240px; max-height: 360px; }
   .leader-art img { object-fit: contain; background: #14110e; }
+  .system-feature .leader-art { max-height: none; }
+  .system-feature .leader-art img { object-fit: cover; }
+}
+
+/* 用心若镜 — image + copy */
+.mirror-heart {
+  display: grid;
+  gap: 1.35rem;
+  align-items: center;
+  margin: 2.25rem 0 0;
+  padding: 1.15rem;
+  background: rgba(22, 19, 16, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.mirror-heart-art {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0e0c0a;
+}
+.mirror-heart-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+.mirror-heart-copy h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 4.5vw, 1.95rem);
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  font-weight: 600;
+}
+.mirror-heart-copy blockquote {
+  margin: 0 0 1rem;
+  padding: 0 0 0 0.9rem;
+  border: none;
+  border-left: 2px solid var(--gold);
+}
+.mirror-heart-copy blockquote p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+.mirror-heart-copy cite {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: normal;
+  letter-spacing: 0.12em;
+}
+.mirror-heart-copy > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.85;
+}
+
+/* Systems 02–05 — same row layout as 东方领导力 */
+.systems-stack {
+  display: grid;
+  gap: 1.5rem;
+}
+.system-feature {
+  margin: 0;
+}
+.system-feature .leader-art {
+  min-height: 220px;
+}
+.system-feature .leader-art img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.system-feature .leader-copy h3 {
+  margin: 0.15rem 0 0.45rem;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+}
+.system-feature .sys-sub {
+  margin: 0 0 0.85rem;
+}
+.system-feature.c2 { --sys-accent: #5aa064; }
+.system-feature.c3 { --sys-accent: #4678be; }
+.system-feature.c4 { --sys-accent: #dc823c; }
+.system-feature.c5 { --sys-accent: #8c5ab4; }
+.system-feature .leader-art {
+  box-shadow: inset 0 0 0 1px rgba(232, 224, 208, 0.06);
+}
+
+@media (min-width: 768px) {
+  .mirror-heart {
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  .mirror-heart-art img {
+    min-height: 320px;
+  }
+  .system-feature .leader-art {
+    min-height: 280px;
+  }
+  .system-feature.reverse .leader-copy { order: 1; }
+  .system-feature.reverse .leader-art { order: 2; }
+}
+
+@media (max-width: 767px) {
+  .mirror-heart { padding: 1rem; }
+  .system-feature.reverse .leader-copy,
+  .system-feature.reverse .leader-art { order: unset; }
 }
 
