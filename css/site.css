@@ -1240,7 +1240,8 @@ html, body {
   .leader-feature { padding: 1rem; }
   .leader-art { min-height: 240px; max-height: 360px; }
   .leader-art img { object-fit: contain; background: #14110e; }
-  .system-feature .leader-art { min-height: 0; max-height: none; }
+  .system-feature .leader-art { min-height: 0; max-height: none; overflow: visible; }
+  .system-feature .leader-art img { object-fit: contain; width: 100%; height: auto; }
 }
 
 /* 用心若镜 — image + copy */
@@ -1318,11 +1319,12 @@ html, body {
   min-height: 0;
   max-height: none;
   height: auto;
+  overflow: visible;
 }
 .system-feature .leader-art img {
+  object-fit: contain;
   width: 100%;
   height: auto;
-  object-fit: contain;
   background: #14110e;
 }
 .system-feature .leader-copy h3 {
