@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1814" />
+  <meta name="description" content="疗愈酒店 · 嘉宾身心觉察与官方冥想" />
+  <title>疗愈酒店 · 身心觉察</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <section id="view-landing" class="view view--active" aria-label="欢迎页">
+      <div class="landing">
+        <div class="landing__mark" aria-hidden="true">✦</div>
+        <p class="landing__brand">疗愈酒店</p>
+        <h1 class="landing__title">欢迎归来</h1>
+        <p class="landing__lead">
+          在此稍作停留，觉察当下的压力、情绪与睡眠状态，<br />
+          并收听官方冥想音频，温柔安顿身心。
+        </p>
+        <button type="button" class="btn btn--primary" id="btn-start" data-action="start">开始评估</button>
+        <button type="button" class="btn btn--ghost" id="btn-skip-audio" data-action="library">直接听冥想</button>
+        <p class="privacy-note">仅供自我觉察，非医疗诊断。<br />答案仅保存在本机浏览器，不会上传。</p>
+      </div>
+    </section>
+    <section id="view-assessment" class="view" aria-label="评估" hidden>
+      <header class="topbar">
+        <button type="button" class="icon-btn" id="btn-back-landing" aria-label="返回首页">‹</button>
+        <div class="progress-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar__fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-label" id="progress-label">1 / 10</span>
+        </div>
+      </header>
+      <div class="question-card" id="question-card">
+        <p class="question-tag" id="question-tag">压力</p>
+        <h2 class="question-text" id="question-text"></h2>
+        <div class="choices" id="choices" role="group" aria-label="选项"></div>
+      </div>
+      <footer class="nav-row">
+        <button type="button" class="btn btn--ghost" id="btn-prev" disabled>上一题</button>
+        <button type="button" class="btn btn--primary" id="btn-next" disabled>下一题</button>
+      </footer>
+    </section>
+    <section id="view-results" class="view" aria-label="结果" hidden>
+      <header class="topbar topbar--solo"><h2 class="view-title">今日觉察</h2></header>
+      <div class="results">
+        <p class="results__intro" id="results-intro"></p>
+        <div class="meters" id="meters"></div>
+        <div class="summary-card" id="summary-card"></div>
+        <div class="suggest-block" id="suggest-block"></div>
+        <div class="results__actions">
+          <button type="button" class="btn btn--primary" data-action="library">收听冥想</button>
+          <button type="button" class="btn btn--ghost" data-action="restart">重新评估</button>
+        </div>
+      </div>
+    </section>
+    <section id="view-library" class="view" aria-label="官方冥想" hidden>
+      <header class="topbar">
+        <button type="button" class="icon-btn" id="btn-back-from-lib" aria-label="返回">‹</button>
+        <h2 class="view-title">官方冥想</h2>
+      </header>
+      <p class="lib-note">试听占位 · 可替换官方音频</p>
+      <ul class="track-list" id="track-list"></ul>
+      <div class="player" id="player" hidden>
+        <div class="player__info">
+          <p class="player__title" id="player-title">—</p>
+          <p class="player__status" id="player-status">准备就绪</p>
+        </div>
+        <div class="player__controls">
+          <button type="button" class="play-btn" id="btn-play" aria-label="播放">▶</button>
+          <div class="player__scrub">
+            <input type="range" id="seek" min="0" max="100" value="0" aria-label="进度" />
+            <div class="player__time"><span id="time-cur">0:00</span><span id="time-dur">0:00</span></div>
+          </div>
+        </div>
+        <audio id="audio-el" preload="metadata"></audio>
+      </div>
+    </section>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
