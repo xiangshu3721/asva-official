@@ -1230,7 +1230,7 @@ html, body {
   .leader-art { min-height: 240px; max-height: 360px; }
   .leader-art img { object-fit: contain; background: #14110e; }
   .system-feature .leader-art { max-height: none; }
-  .system-feature .leader-art img { object-fit: cover; }
+  .system-feature .leader-art img { object-fit: contain; }
 }
 
 /* 用心若镜 — image + copy */
@@ -1309,7 +1309,8 @@ html, body {
 }
 .system-feature .leader-art img {
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain;
+  background: #14110e;
 }
 .system-feature .leader-copy h3 {
   margin: 0.15rem 0 0.45rem;
