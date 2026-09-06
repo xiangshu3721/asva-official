@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="知人镜知识库：核心透镜、实用框架与文化象征透镜。" />
+  <title>知识库 · 知人镜</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span>知人镜</span></a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="kb.html" aria-current="page">知识库</a>
+        <a href="ask.html">智能识人</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-intro">
+      <h1>知识库</h1>
+      <p class="lead">透镜分三层：核心（必读伦理与方法）、实用框架、文化/象征（次要）。点开卡片阅读要点、用法与误用边界。</p>
+    </header>
+
+    <div class="toolbar">
+      <label class="field-label" for="kb-search">搜索模块</label>
+      <input id="kb-search" type="search" placeholder="如：防骗、依恋、动机、沟通…" autocomplete="off" />
+    </div>
+
+    <div id="kb-list" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>知人镜 · 看见是为了抱持，不是为了操控</p>
+  </footer>
+  <script src="js/kb.js"></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
