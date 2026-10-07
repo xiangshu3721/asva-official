@@ -1468,6 +1468,7 @@ html, body {
   color: var(--ink-soft);
   font-size: 0.95rem;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 .tool-copy .btn {
   align-self: flex-start;
