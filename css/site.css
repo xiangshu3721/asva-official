@@ -1056,6 +1056,12 @@ html, body {
   min-height: 44px;
   max-width: 100%;
 }
+@media (min-width: 720px) {
+  .hero-actions .btn:only-child {
+    flex: 0 1 auto;
+    min-width: 12rem;
+  }
+}
 .section { padding: 3.25rem 0; }
 .section-head h2,
 .band h2 {
